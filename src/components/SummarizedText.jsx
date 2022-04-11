@@ -12,14 +12,14 @@ export default function SummarizedText({ text, onTextChange }) {
         style={{
           width: 1000,
           backgroundColor: '#0E0E0E',
-          color: '#fff',
+          color: '#a8b6da',
           fontFamily: 'Inter',
           fontSize: '16px',
           textAlign: 'justify',
           letterSpacing: '1.5px',
           padding: '10px',
-          lineHeight: '26px'
-
+          lineHeight: '28px',
+          borderRadius: '10px'
         }}
       />
       <br />

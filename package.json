@@ -1,0 +1,26 @@
+{
+  "name": "summarizer",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/style": "^0.8.0",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^5.5.1",
+    "@mui/lab": "^5.0.0-alpha.75",
+    "@mui/material": "^5.5.1",
+    "axios": "^0.26.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.7",
+    "vite": "^2.8.0"
+  }
+}

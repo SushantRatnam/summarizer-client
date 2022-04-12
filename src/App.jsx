@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import DataSource from './components/DataSource';
 import SummarizedText from './components/SummarizedText';
 import TextTypeTabs from './components/TextTypeTabs';
 
 function App() {
-  const [text, setText] = useState();
+  const [textArea, setTextArea] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedTab, setSelectedTab] = useState(0);
   const [fullText, setFullText] = useState();
@@ -14,17 +14,24 @@ function App() {
 
   const handleSelectedChange = (event, newValue) => {
     setSelectedTab(newValue);
-    if (newValue === 0) {
-      setText(fullText);
-    } else if (newValue === 1) setText(summarizedText);
-    else setText(keywords);
   };
+
+  useEffect(() => {
+    if (selectedTab === 0) setTextArea(fullText);
+    else if (selectedTab === 1) setTextArea(summarizedText);
+    else setTextArea(keywords);
+  }, [selectedTab]);
+
+  useEffect(() => {
+    setTextArea(fullText);
+  }, [fullText]);
 
   return (
     <div className="App">
       <h1 className="header">SUMMARIZER</h1>
       <DataSource
-        onTextChange={(text) => setText(text)}
+        setTextArea={setTextArea}
+        fullText={fullText}
         setFullText={setFullText}
         setSummarizedText={setSummarizedText}
         setKeywords={setKeywords}
@@ -33,7 +40,7 @@ function App() {
         handleSelectedChange={handleSelectedChange}
       />
       <TextTypeTabs handleSelectedChange={handleSelectedChange} selectedTab={selectedTab} />
-      <SummarizedText text={text} onTextChange={(text) => setText(text)} />
+      <SummarizedText textArea={textArea} setTextArea={setTextArea} />
     </div>
   );
 }

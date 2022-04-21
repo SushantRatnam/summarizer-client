@@ -10,7 +10,7 @@ export default function SummarizedText({ textArea, setTextArea }) {
         minRows={20}
         value={textArea}
         style={{
-          width: 1000,
+          width: '90%',
           backgroundColor: '#0E0E0E',
           color: '#a8b6da',
           fontFamily: 'Inter',
